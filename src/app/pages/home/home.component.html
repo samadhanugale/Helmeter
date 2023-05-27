@@ -1,0 +1,23 @@
+<div class="image-container" *ngFor="let image of images">
+  <img [src]="'data:image/jpg;base64,' + image.fullImage" alt="Image" (click)="openDialog(image)">
+  <h3 >{{ image.timeStamp | date:'yyyy-MMM-dd HH:mm:ss' }}    <mat-icon onclick="onDelete(image.id)">delete_forever</mat-icon></h3>
+</div>
+
+
+<div class="pagination" style="margin-top: 20px;">
+  <button mat-raised-button color="primary" style="margin-right: 20px;" [class.mat-button-fill]="'fill'" (click)="prevPage()">Previous</button>
+  <span class="pagination-box">{{ currentPage }}</span>
+  <button mat-raised-button color="primary" style="margin-left: 20px;"  [class.mat-button-fill]="'fill'" (click)="nextPage()">Next</button>
+</div>
+<div class="loading-spinner-overlay" *ngIf="isLoading">
+  <div class="sk-chase">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div>
+</div>
+
+

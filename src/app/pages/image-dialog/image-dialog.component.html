@@ -1,0 +1,18 @@
+<h3 mat-dialog-title>Image Floating Box</h3>
+<div mat-dialog-content cdkResizable>
+    <img [src]="'data:image/jpg;base64,' + data.image.fullImage" alt="Image" style="width: 100%;">
+    <mat-form-field appearance="outline"> 
+        <mat-label>Enter email here</mat-label>
+        <input matInput placeholder="Enter email" [(ngModel)]="data.textInput" required email>
+        <mat-icon matSuffix>bike</mat-icon>
+        <mat-error *ngIf="isFieldEmpty()">Field should not be empty</mat-error>
+        <mat-error *ngIf="isFieldInvalid()">Invalid email format</mat-error>
+        <mat-hint>biker@helmeter.com</mat-hint>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="sendEmail(data.image.id)">Send</button>
+    <button mat-button style="margin-left: 50%;" (click)="onDelete(data.image.id)">
+        <mat-icon>delete_forever</mat-icon>
+    </button>
+</div>
