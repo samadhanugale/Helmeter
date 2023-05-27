@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   API_URL = "http://localhost:8080/helmet";
   images: any[];
   currentPage: number = 1;
-  pageSize: number = 18;
+  pageSize: number = 12;
   totalItems: number;
   isLoading: boolean = false;
 
@@ -109,6 +109,7 @@ showSnackBar(message: string, panelClass: string) {
           this.showSnackBar('An error occurred while deleting the image', 'error');
         }
       );
+      this.getImages(this.currentPage, this.pageSize);
   }
   
 }

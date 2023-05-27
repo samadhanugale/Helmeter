@@ -51,6 +51,7 @@ export class ImageDialogComponent {
   }
 
   sendEmail(imageId: String) {
+console.log("delete called : "+imageId);
 
     if (!this.isFieldEmpty()) {
       // Perform the action when send button is clicked and the field is not empty
@@ -60,7 +61,7 @@ export class ImageDialogComponent {
       const requestBody = {
         email: this.data.textInput,
         number: 'MH15DA8768',
-        image: '646e1d70a389039b2e97fcf3'
+        image: imageId
       };
 
       this.http.post(url, requestBody).subscribe(
@@ -71,7 +72,7 @@ export class ImageDialogComponent {
         },
         (error: any) => {
           // Show error snackbar
-          this.showSnackBar('Success', 'Email sent successfully', 'success');
+          this.showSnackBar('Error', 'Failed to send email', 'error');
           this.dialogRef.close();
         }
       );

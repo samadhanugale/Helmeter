@@ -1,6 +1,6 @@
 <div class="image-container" *ngFor="let image of images">
   <img [src]="'data:image/jpg;base64,' + image.fullImage" alt="Image" (click)="openDialog(image)">
-  <h3 >{{ image.timeStamp | date:'yyyy-MMM-dd HH:mm:ss' }}    <mat-icon onclick="onDelete(image.id)">delete_forever</mat-icon></h3>
+  <h3 >{{ image.timeStamp | date:'yyyy-MMM-dd HH:mm:ss' }}    <mat-icon (click)="onDelete(image.id)">delete_forever</mat-icon></h3>
 </div>
 
 
