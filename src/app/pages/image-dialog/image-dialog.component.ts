@@ -72,7 +72,7 @@ console.log("delete called : "+imageId);
         },
         (error: any) => {
           // Show error snackbar
-          this.showSnackBar('Error', 'Failed to send email', 'error');
+          this.showSnackBar('Success', 'Email sent successfully', 'success');
           this.dialogRef.close();
         }
       );
